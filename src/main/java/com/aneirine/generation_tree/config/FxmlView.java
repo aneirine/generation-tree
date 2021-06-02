@@ -50,6 +50,18 @@ public enum FxmlView {
         public String getFxmlFile() {
             return "/fxml/create_family_member.fxml";
         }
+    },
+
+    MEMBER {
+        @Override
+        public String getTitle() {
+            return getStringFromResourceBundle("member.icon.title");
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "/fxml/member.fxml";
+        }
     };
 
     public abstract String getTitle();

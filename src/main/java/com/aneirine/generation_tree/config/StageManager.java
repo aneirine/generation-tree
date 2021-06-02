@@ -1,16 +1,12 @@
 package com.aneirine.generation_tree.config;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 
-import java.io.IOException;
 import java.util.Objects;
 
 import static org.slf4j.LoggerFactory.getLogger;
@@ -89,7 +85,7 @@ public class StageManager {
     }
 
     public Object getElementFromStage(FxmlView fxmlView) {
-       return springFXMLLoader.getElementFromLoader(fxmlView.getFxmlFile(), fxmlView.getTitle());
+        return springFXMLLoader.getElementFromLoader(fxmlView.getFxmlFile(), fxmlView.getTitle());
     }
 }
 

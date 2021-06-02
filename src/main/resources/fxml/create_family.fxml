@@ -13,7 +13,7 @@
                 <Insets bottom="15.0"/>
             </VBox.margin>
         </TextField>
-        <Button fx:id="buttonConfirm" mnemonicParsing="false" text="Button"/>
+        <Button fx:id="buttonConfirm" mnemonicParsing="false" text="Create"/>
     </children>
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>

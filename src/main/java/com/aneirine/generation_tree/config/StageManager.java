@@ -36,7 +36,7 @@ public class StageManager {
         stage.initModality(Modality.WINDOW_MODAL);
 
         Parent root = loadViewNodeHierarchy(fxmlView.getFxmlFile());
-        stage.setScene(new Scene(root, 200, 125));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 

@@ -2,13 +2,10 @@ package com.aneirine.generation_tree.jpa.entities;
 
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.PrePersist;
+import javax.persistence.*;
 import java.util.UUID;
 
-@Entity
+@MappedSuperclass
 public class BaseEntity {
 
     @Id

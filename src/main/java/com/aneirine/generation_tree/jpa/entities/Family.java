@@ -1,10 +1,10 @@
 package com.aneirine.generation_tree.jpa.entities;
 
 import lombok.*;
-import org.hibernate.annotations.Type;
 
-import javax.persistence.*;
-import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Getter
 @Setter
@@ -12,7 +12,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity
+@Entity(name = "Family")
 @Table(name = "families")
 public class Family extends BaseEntity {
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+      xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.aneirine.generation_tree.controllers.CreateFamilyController">
+    <children>
+        <TextField fx:id="textFieldFamilyName" promptText="Enter a family name">
+            <VBox.margin>
+                <Insets bottom="15.0"/>
+            </VBox.margin>
+        </TextField>
+        <Button fx:id="buttonConfirm" mnemonicParsing="false" text="Button"/>
+    </children>
+    <padding>
+        <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>
+    </padding>
+</VBox>

@@ -62,7 +62,7 @@ fx:controller="com.aneirine.generation_tree.controllers.MainController">
             <items>
                 <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0">
                     <items>
-                        <ListView prefHeight="551.0" prefWidth="222.0" />
+                        <ListView prefHeight="551.0" prefWidth="222.0" fx:id="listViewFamilies" />
                         <Button mnemonicParsing="false" text="Create new family" fx:id="createFamilyButton"/>
                     </items>
                 </SplitPane>

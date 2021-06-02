@@ -14,19 +14,9 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "families")
-public class Family {
-
-    @Id
-    @Type(type = "pg-uuid")
-    @Column(unique = true, nullable = false, columnDefinition = "uuid")
-    private UUID id;
+public class Family extends BaseEntity {
 
     @Column(name = "name")
     private String name;
-
-    @PrePersist
-    public void prePersist() {
-        id = UUID.randomUUID();
-    }
 
 }

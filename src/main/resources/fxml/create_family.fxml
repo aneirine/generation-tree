@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.VBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.aneirine.generation_tree.controllers.CreateFamilyController">
+      fx:controller="com.aneirine.generation_tree.controllers.FamilyController">
     <children>
         <TextField fx:id="textFieldFamilyName" promptText="Enter a family name">
             <VBox.margin>

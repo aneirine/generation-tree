@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Controller
-public class CreateFamilyController implements Initializable {
+public class FamilyController implements Initializable {
 
     @FXML
     private TextField textFieldFamilyName;

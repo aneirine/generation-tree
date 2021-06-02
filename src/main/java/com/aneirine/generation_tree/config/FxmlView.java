@@ -16,7 +16,7 @@ public enum FxmlView {
         }
     },
 
-    CREATE_FAMILY {
+    FAMILY {
         @Override
         public String getTitle() {
             return getStringFromResourceBundle("create-family.title");
@@ -25,6 +25,18 @@ public enum FxmlView {
         @Override
         public String getFxmlFile() {
             return "/fxml/create_family.fxml";
+        }
+    },
+
+    FAMILY_MEMBER {
+        @Override
+        public String getTitle() {
+            return getStringFromResourceBundle("create-family-member.title");
+        }
+
+        @Override
+        public String getFxmlFile() {
+            return "/fxml/add_family_member_first_screen.fxml";
         }
     };
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Point3D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.text.Font?>
+<Button mnemonicParsing="false"
+        style="-fx-background-radius: 7em; -fx-min-width: 50px; -fx-min-height: 50px; -fx-max-width: 50px; -fx-max-height: 50px;"
+        text="+" textOverrun="CENTER_WORD_ELLIPSIS" xmlns="http://javafx.com/javafx/16"
+        xmlns:fx="http://javafx.com/fxml/1"
+        fx:id="buttonCreateFamilyMember">
+    <rotationAxis>
+        <Point3D/>
+    </rotationAxis>
+    <opaqueInsets>
+        <Insets/>
+    </opaqueInsets>
+    <font>
+        <Font name="System Bold" size="24.0"/>
+    </font>
+</Button>

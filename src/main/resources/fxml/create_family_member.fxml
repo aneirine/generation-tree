@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.aneirine.generation_tree.controllers.FamilyMemberController">
+    <children>
+        <TextField fx:id="textFieldFamilyFirstName" promptText="First name">
+            <VBox.margin>
+                <Insets bottom="15.0"/>
+            </VBox.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </TextField>
+        <TextField fx:id="textFieldFamilySurname" promptText="Surname (not required)">
+            <VBox.margin>
+                <Insets bottom="15.0"/>
+            </VBox.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0"/>
+            </padding>
+        </TextField>
+        <HBox alignment="CENTER" minWidth="100.0">
+            <children>
+                <RadioButton mnemonicParsing="false" text="Male" fx:id="radioButtonMale">
+                    <HBox.margin>
+                        <Insets right="15.0"/>
+                    </HBox.margin>
+                </RadioButton>
+                <RadioButton mnemonicParsing="false" text="Female" fx:id="radioButtonFemale"/>
+            </children>
+            <padding>
+                <Insets bottom="15.0"/>
+            </padding>
+        </HBox>
+        <Button fx:id="buttonCreateFamilyMember" mnemonicParsing="false" text="Create"/>
+    </children>
+    <padding>
+        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0"/>
+    </padding>
+</VBox>

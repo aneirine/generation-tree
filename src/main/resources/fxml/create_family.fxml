@@ -6,14 +6,14 @@
 <?import javafx.scene.layout.VBox?>
 <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
       xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.aneirine.generation_tree.controllers.CreateFamilyController">
+      fx:controller="com.aneirine.generation_tree.controllers.FamilyController">
     <children>
         <TextField fx:id="textFieldFamilyName" promptText="Enter a family name">
             <VBox.margin>
                 <Insets bottom="15.0"/>
             </VBox.margin>
         </TextField>
-        <Button fx:id="buttonConfirm" mnemonicParsing="false" text="Button"/>
+        <Button fx:id="buttonConfirm" mnemonicParsing="false" text="Create"/>
     </children>
     <padding>
         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0"/>

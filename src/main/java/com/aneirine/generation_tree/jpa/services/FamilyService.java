@@ -29,4 +29,8 @@ public class FamilyService {
                 .map(temp -> temp.getName())
                 .collect(Collectors.toList());
     }
+
+    public Family getFamilyByName(String name) {
+        return familyRepository.findByName(name);
+    }
 }

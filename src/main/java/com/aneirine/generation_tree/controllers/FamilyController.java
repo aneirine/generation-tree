@@ -14,7 +14,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 @Controller
-public class CreateFamilyController implements Initializable {
+public class FamilyController implements Initializable {
 
     @FXML
     private TextField textFieldFamilyName;
@@ -29,12 +29,10 @@ public class CreateFamilyController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonConfirm.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            String text = textFieldFamilyName.getText();
-            System.out.println("Family name is " + text);
+            String familyName = textFieldFamilyName.getText();
+            familyService.createFamily(familyName);
 
-            familyService.createFamily(text);
             mainController.loadFamiliesNames();
-            //get current stage
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();
 

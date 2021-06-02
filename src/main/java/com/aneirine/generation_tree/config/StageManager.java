@@ -1,7 +1,6 @@
 package com.aneirine.generation_tree.config;
 
 import javafx.application.Platform;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Modality;
@@ -28,12 +27,12 @@ public class StageManager {
         show(viewRootNodeHierarchy, view.getTitle());
     }
 
-    public void addSecondStage(final FxmlView fxmlView){
+    public void addSecondStage(final FxmlView fxmlView) {
         Stage stage = new Stage();
         stage.initModality(Modality.WINDOW_MODAL);
 
         Parent root = loadViewNodeHierarchy(fxmlView.getFxmlFile());
-        stage.setScene(new Scene(root, 200, 125));
+        stage.setScene(new Scene(root));
         stage.show();
     }
 
@@ -85,5 +84,8 @@ public class StageManager {
         Platform.exit();
     }
 
+    public Object getElementFromStage(FxmlView fxmlView) {
+        return springFXMLLoader.getElementFromLoader(fxmlView.getFxmlFile(), fxmlView.getTitle());
+    }
 }
 

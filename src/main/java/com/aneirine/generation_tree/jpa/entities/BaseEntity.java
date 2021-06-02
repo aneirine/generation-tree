@@ -1,10 +1,12 @@
 package com.aneirine.generation_tree.jpa.entities;
 
+import lombok.Getter;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.UUID;
 
+@Getter
 @MappedSuperclass
 public class BaseEntity {
 

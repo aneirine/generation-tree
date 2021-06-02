@@ -29,12 +29,10 @@ public class FamilyController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonConfirm.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            String text = textFieldFamilyName.getText();
-            System.out.println("Family name is " + text);
+            String familyName = textFieldFamilyName.getText();
+            familyService.createFamily(familyName);
 
-            familyService.createFamily(text);
             mainController.loadFamiliesNames();
-            //get current stage
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();
 

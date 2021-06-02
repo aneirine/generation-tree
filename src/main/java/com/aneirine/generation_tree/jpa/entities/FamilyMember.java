@@ -1,7 +1,16 @@
 package com.aneirine.generation_tree.jpa.entities;
 
+import lombok.*;
+
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+@Getter
+@Setter
+@Builder
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
 
 @Entity(name = "FamilyMember")
 @Table(name = "family_members")

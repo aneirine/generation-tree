@@ -21,10 +21,25 @@ public class SpringFXMLLoader {
     }
 
     public Parent load(String fxmlPath) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
+        FXMLLoader loader = getLoader(fxmlPath);
         loader.setControllerFactory(context::getBean); //Spring now FXML Controller Factory
         loader.setResources(resourceBundle);
-        loader.setLocation(getClass().getResource(fxmlPath));
         return loader.load();
     }
+
+    public FXMLLoader getLoader(String fxmlPath) {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
+        return loader;
+    }
+
+    public Object getElementFromLoader(String fxmlViewPath, String elementId) {
+        FXMLLoader loader = getLoader(fxmlViewPath);
+        try {
+            loader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return loader.getNamespace().get(elementId);
+    }
+
 }

@@ -28,10 +28,10 @@ public enum FxmlView {
         }
     },
 
-    FAMILY_MEMBER {
+    FAMILY_MEMBER_BUTTON {
         @Override
         public String getTitle() {
-            return getStringFromResourceBundle("create-family-member.title");
+            return getStringFromResourceBundle("create-family-member.button.title");
         }
 
         @Override

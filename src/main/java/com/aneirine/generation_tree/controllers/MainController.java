@@ -62,13 +62,15 @@ public class MainController implements Initializable {
         listViewFamilies.setItems(familiesList);
     }
 
-    private void loadFamilyTree() {
+    public void loadFamilyTree() {
+        System.out.println("FAMILY NAME");
         Family family = familyService.getFamilyByName((String) listViewFamilies.getSelectionModel().getSelectedItem());
         currentFamilyName = family.getName();
         if (family.getFamilyMembers() == null || family.getFamilyMembers().isEmpty()) {
             hBoxTree.getChildren().clear();
             hBoxTree.getChildren().add(buttonCreateFamilyMember);
         } else {
+            hBoxTree.getChildren().clear();
             //TODO: show tree
             family.getFamilyMembers().forEach(temp -> System.out.printf(temp.toString()));
         }

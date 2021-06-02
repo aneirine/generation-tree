@@ -74,4 +74,8 @@ public class MainController implements Initializable {
         }
     }
 
+    public Family getCurrentFamily(){
+       return familyService.getFamilyByName(currentFamilyName);
+    }
+
 }

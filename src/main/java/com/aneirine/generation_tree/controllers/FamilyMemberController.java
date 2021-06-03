@@ -11,6 +11,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 
@@ -50,5 +51,8 @@ public class FamilyMemberController implements Initializable {
                         .familyUuid(family.getId())
                         .build()
         );
+        Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();
+        stage.close();
+        mainController.loadFamilyTree();
     }
 }

@@ -44,7 +44,6 @@ public class MainController implements Initializable {
     private StageManager stageManager;
 
     private final FamilyService familyService;
-
     private ObservableList<String> familiesList = FXCollections.observableArrayList();
     private String currentFamilyName;
 
@@ -72,17 +71,12 @@ public class MainController implements Initializable {
     }
 
     public void loadFamilyTree() {
-        System.out.println("FAMILY NAME");
         Family family = familyService.getFamilyByName((String) listViewFamilies.getSelectionModel().getSelectedItem());
         currentFamilyName = family.getName();
+        hBoxTree.getChildren().clear();
         if (family.getFamilyMembers() == null || family.getFamilyMembers().isEmpty()) {
-            hBoxTree.getChildren().clear();
             hBoxTree.getChildren().add(buttonCreateFamilyMember);
-        } else {
-            hBoxTree.getChildren().clear();
-            //TODO: show tree
-            createMemberIcon();
-        }
+        } else createMemberIcon();
     }
 
     private void createMemberIcon() {
@@ -99,6 +93,7 @@ public class MainController implements Initializable {
         ImageView imageView = (ImageView) vBoxMember.getChildren().get(0);
         FileInputStream input = null;
         try {
+            //TODO: add icon to member
             input = new FileInputStream("src/main/resources/icons/female-icon-27.png");
         } catch (FileNotFoundException e) {
             e.printStackTrace();

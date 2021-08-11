@@ -8,13 +8,11 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-
-@MappedSuperclass
-public class FamilyMember extends BaseEntity {
+@Entity
+public abstract class FamilyMember extends BaseEntity {
 
     @Column(name = "first_name")
     protected String firstName;

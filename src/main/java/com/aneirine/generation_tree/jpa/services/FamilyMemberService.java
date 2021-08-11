@@ -19,14 +19,6 @@ public class FamilyMemberService {
 
     @Transactional
     public void createFamilyMember(FamilyMemberCreateDto dto) {
-        Family family = familyRepository.getById(dto.getFamilyUuid());
-        FamilyMember familyMember = FamilyMember.builder()
-                .firstName(dto.getName())
-                .surname(dto.getSurname())
-                .gender(dto.getGender())
-                .build();
-        familyMemberRepository.save(familyMember);
-        family.addFamilyMember(familyMember);
-        familyRepository.save(family);
+
     }
 }

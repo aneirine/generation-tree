@@ -1,7 +1,6 @@
-package com.aneirine.generation_tree.jpa.entities.traits;
+package com.aneirine.generation_tree.jpa.entities.personality;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
-import com.aneirine.generation_tree.jpa.entities.traits.enums.TraitType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -11,8 +10,6 @@ import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.Table;
 
 @Getter
@@ -22,18 +19,19 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity(name = "Trait")
-@Table(name = "traits")
-public class Trait extends BaseEntity {
+@Entity(name = "LifeGoal")
+@Table(name = "life_goals")
+public class LifeGoal extends BaseEntity {
 
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    @Enumerated(EnumType.STRING)
-    private TraitType type;
+    @Column(name = "goal")
+    private String goal;
 
-    @Column(name = "hidden")
-    private Boolean hidden;
+    @Column(name = "description")
+    private String description;
 
+    @Column(name = "happiness")
+    private Integer happiness;
 }

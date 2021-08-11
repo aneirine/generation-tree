@@ -16,7 +16,6 @@ import javax.persistence.Table;
 
 @Getter
 @Setter
-@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor

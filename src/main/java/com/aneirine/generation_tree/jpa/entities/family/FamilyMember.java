@@ -26,15 +26,4 @@ public class FamilyMember extends BaseEntity {
     @Enumerated(EnumType.STRING)
     protected Gender gender;
 
-    @Column(name = "race")
-    @Enumerated(EnumType.STRING)
-    protected Race race;
-
-    //TODO:
-    // private List<Relation> relationList;
-    // traits
-    // live  goals
-    // memories
-    // gallery
-
 }

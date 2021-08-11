@@ -28,4 +28,12 @@ public class FamilyMemberPerson extends FamilyMember{
     @Column(name = "race")
     @Enumerated(EnumType.STRING)
     private Race race;
+
+
+    //TODO:
+    // private List<Relation> relationList;
+    // traits
+    // live  goals
+    // memories
+    // gallery
 }

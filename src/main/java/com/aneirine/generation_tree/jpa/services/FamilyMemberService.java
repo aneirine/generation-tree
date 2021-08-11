@@ -23,7 +23,8 @@ public class FamilyMemberService {
         FamilyMember familyMember = FamilyMember.builder()
                 .firstName(dto.getName())
                 .surname(dto.getSurname())
-                .gender(dto.getGenger())
+                .gender(dto.getGender())
+                .race(dto.getRace())
                 .build();
         familyMemberRepository.save(familyMember);
         family.addFamilyMember(familyMember);

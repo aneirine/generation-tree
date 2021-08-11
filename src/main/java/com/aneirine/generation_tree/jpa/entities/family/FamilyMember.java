@@ -1,8 +1,8 @@
 package com.aneirine.generation_tree.jpa.entities.family;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
-import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
 import lombok.*;
+import com.aneirine.generation_tree.jpa.entities.family.enums.*;
 
 import javax.persistence.*;
 
@@ -26,6 +26,10 @@ public class FamilyMember extends BaseEntity {
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
     protected Gender gender;
+
+    @Column(name = "race")
+    @Enumerated(EnumType.STRING)
+    protected Race race;
 
     //TODO:
     // private List<Relation> relationList;

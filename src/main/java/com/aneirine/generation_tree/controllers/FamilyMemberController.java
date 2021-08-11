@@ -45,7 +45,7 @@ public class FamilyMemberController implements Initializable {
         Family family = mainController.getCurrentFamily();
         familyMemberService.createFamilyMember(
                 FamilyMemberCreateDto.builder()
-                        .genger(gender)
+                        .gender(gender)
                         .name(textFieldFamilyFirstName.getText())
                         .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
                         .familyUuid(family.getId())

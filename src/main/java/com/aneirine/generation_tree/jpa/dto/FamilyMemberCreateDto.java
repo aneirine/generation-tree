@@ -15,5 +15,4 @@ public class FamilyMemberCreateDto {
     private String name;
     private String surname;
     private Gender gender;
-    private Race race;
 }

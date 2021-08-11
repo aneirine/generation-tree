@@ -8,13 +8,12 @@ import javax.persistence.*;
 
 @Getter
 @Setter
-@Builder
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-
-@MappedSuperclass
-public class FamilyMember extends BaseEntity {
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+public abstract class FamilyMember extends BaseEntity {
 
     @Column(name = "first_name")
     protected String firstName;

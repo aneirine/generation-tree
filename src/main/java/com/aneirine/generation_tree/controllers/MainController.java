@@ -72,11 +72,13 @@ public class MainController implements Initializable {
 
     public void loadFamilyTree() {
         Family family = familyService.getFamilyByName((String) listViewFamilies.getSelectionModel().getSelectedItem());
-        currentFamilyName = family.getName();
-        hBoxTree.getChildren().clear();
-        if (family.getFamilyMembers() == null || family.getFamilyMembers().isEmpty()) {
-            hBoxTree.getChildren().add(buttonCreateFamilyMember);
-        } else createMemberIcon();
+        if (family != null) {
+            currentFamilyName = family.getName();
+            hBoxTree.getChildren().clear();
+            if (family.getFamilyMembers() == null || family.getFamilyMembers().isEmpty()) {
+                hBoxTree.getChildren().add(buttonCreateFamilyMember);
+            } else createMemberIcon();
+        }
     }
 
     private void createMemberIcon() {

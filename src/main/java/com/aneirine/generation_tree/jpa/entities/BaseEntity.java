@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Getter
 @MappedSuperclass
-public class BaseEntity {
+public abstract class BaseEntity {
 
     @Id
     @Type(type = "pg-uuid")

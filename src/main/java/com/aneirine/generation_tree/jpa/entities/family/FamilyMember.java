@@ -13,8 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity(name = "FamilyMember")
-@Table(name = "family_members")
+@MappedSuperclass
 public class FamilyMember extends BaseEntity {
 
     @Column(name = "first_name")

@@ -1,8 +1,8 @@
 package com.aneirine.generation_tree.controllers;
 
 import com.aneirine.generation_tree.jpa.dto.FamilyMemberCreateDto;
-import com.aneirine.generation_tree.jpa.entities.Family;
-import com.aneirine.generation_tree.jpa.entities.enums.Gender;
+import com.aneirine.generation_tree.jpa.entities.family.Family;
+import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
 import com.aneirine.generation_tree.jpa.services.FamilyMemberService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

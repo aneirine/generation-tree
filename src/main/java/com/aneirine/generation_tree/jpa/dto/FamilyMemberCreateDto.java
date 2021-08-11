@@ -1,6 +1,6 @@
 package com.aneirine.generation_tree.jpa.dto;
 
-import com.aneirine.generation_tree.jpa.entities.enums.Gender;
+import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
 import lombok.*;
 
 import java.util.UUID;

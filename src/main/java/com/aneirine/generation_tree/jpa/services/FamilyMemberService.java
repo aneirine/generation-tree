@@ -24,7 +24,6 @@ public class FamilyMemberService {
                 .firstName(dto.getName())
                 .surname(dto.getSurname())
                 .gender(dto.getGender())
-                .race(dto.getRace())
                 .build();
         familyMemberRepository.save(familyMember);
         family.addFamilyMember(familyMember);

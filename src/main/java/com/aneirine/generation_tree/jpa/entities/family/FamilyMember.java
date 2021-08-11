@@ -1,7 +1,8 @@
-package com.aneirine.generation_tree.jpa.entities;
+package com.aneirine.generation_tree.jpa.entities.family;
 
-import com.aneirine.generation_tree.jpa.entities.enums.Gender;
+import com.aneirine.generation_tree.jpa.entities.BaseEntity;
 import lombok.*;
+import com.aneirine.generation_tree.jpa.entities.family.enums.*;
 
 import javax.persistence.*;
 
@@ -12,8 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-@Entity(name = "FamilyMember")
-@Table(name = "family_members")
+@MappedSuperclass
 public class FamilyMember extends BaseEntity {
 
     @Column(name = "first_name")
@@ -25,12 +25,5 @@ public class FamilyMember extends BaseEntity {
     @Column(name = "gender")
     @Enumerated(EnumType.STRING)
     protected Gender gender;
-
-    //TODO:
-    // private List<Relation> relationList;
-    // traits
-    // live  goals
-    // memories
-    // gallery
 
 }

@@ -1,6 +1,6 @@
 package com.aneirine.generation_tree.jpa.services;
 
-import com.aneirine.generation_tree.jpa.entities.Family;
+import com.aneirine.generation_tree.jpa.entities.family.Family;
 import com.aneirine.generation_tree.jpa.repositories.FamilyRepository;
 import org.springframework.stereotype.Service;
 

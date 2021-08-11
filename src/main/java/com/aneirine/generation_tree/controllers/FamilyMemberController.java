@@ -1,8 +1,8 @@
 package com.aneirine.generation_tree.controllers;
 
 import com.aneirine.generation_tree.jpa.dto.FamilyMemberCreateDto;
-import com.aneirine.generation_tree.jpa.entities.Family;
-import com.aneirine.generation_tree.jpa.entities.enums.Gender;
+import com.aneirine.generation_tree.jpa.entities.family.Family;
+import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
 import com.aneirine.generation_tree.jpa.services.FamilyMemberService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -45,7 +45,7 @@ public class FamilyMemberController implements Initializable {
         Family family = mainController.getCurrentFamily();
         familyMemberService.createFamilyMember(
                 FamilyMemberCreateDto.builder()
-                        .genger(gender)
+                        .gender(gender)
                         .name(textFieldFamilyFirstName.getText())
                         .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
                         .familyUuid(family.getId())

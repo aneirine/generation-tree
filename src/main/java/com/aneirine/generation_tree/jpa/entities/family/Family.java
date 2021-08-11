@@ -1,5 +1,6 @@
-package com.aneirine.generation_tree.jpa.entities;
+package com.aneirine.generation_tree.jpa.entities.family;
 
+import com.aneirine.generation_tree.jpa.entities.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;

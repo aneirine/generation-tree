@@ -1,9 +1,9 @@
-package com.aneirine.generation_tree.jpa.entities.family;
+package com.aneirine.generation_tree.jpa.families.persistence;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.RelationType;
 import lombok.*;
 
-import javax.management.relation.RelationType;
 import javax.persistence.*;
 
 @Getter

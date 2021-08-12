@@ -1,9 +1,9 @@
 package com.aneirine.generation_tree.controllers;
 
-import com.aneirine.generation_tree.jpa.dto.FamilyMemberCreateDto;
-import com.aneirine.generation_tree.jpa.entities.family.Family;
-import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
-import com.aneirine.generation_tree.jpa.services.FamilyMemberService;
+import com.aneirine.generation_tree.jpa.families.dto.FamilyMemberCreateDto;
+import com.aneirine.generation_tree.jpa.families.persistence.Family;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.Gender;
+import com.aneirine.generation_tree.jpa.families.FamilyMemberService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

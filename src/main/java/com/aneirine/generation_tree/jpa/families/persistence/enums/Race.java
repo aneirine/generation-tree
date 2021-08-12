@@ -1,4 +1,4 @@
-package com.aneirine.generation_tree.jpa.entities.family.enums;
+package com.aneirine.generation_tree.jpa.families.persistence.enums;
 
 public enum Race {
     HUMAN, HUMAN_DEAD,

@@ -1,10 +1,12 @@
-package com.aneirine.generation_tree.jpa.entities.family;
+package com.aneirine.generation_tree.jpa.families.persistence;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
 import lombok.*;
-import com.aneirine.generation_tree.jpa.entities.family.enums.*;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter

@@ -1,6 +1,6 @@
 package com.aneirine.generation_tree.controllers;
 
-import com.aneirine.generation_tree.jpa.services.FamilyService;
+import com.aneirine.generation_tree.jpa.families.FamilyService;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;

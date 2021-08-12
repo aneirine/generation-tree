@@ -1,15 +1,15 @@
-package com.aneirine.generation_tree.jpa.dto;
+package com.aneirine.generation_tree.jpa.families.dto;
 
-import com.aneirine.generation_tree.jpa.entities.family.enums.*;
-import lombok.*;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.Gender;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
 
 import java.util.UUID;
 
 @Getter
-@Setter
 @Builder
 @AllArgsConstructor
-@NoArgsConstructor
 public class FamilyMemberCreateDto {
     private UUID familyUuid;
     private String name;

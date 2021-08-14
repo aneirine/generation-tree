@@ -28,17 +28,6 @@ public enum FxmlView {
         }
     },
 
-    FAMILY_MEMBER_BUTTON {
-        @Override
-        public String getTitle() {
-            return getStringFromResourceBundle("create-family-member.button.title");
-        }
-
-        @Override
-        public String getFxmlFile() {
-            return "/fxml/add_family_member_first_screen.fxml";
-        }
-    },
 
     FAMILY_MEMBER {
         @Override

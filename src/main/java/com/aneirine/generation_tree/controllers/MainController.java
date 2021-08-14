@@ -2,9 +2,9 @@ package com.aneirine.generation_tree.controllers;
 
 import com.aneirine.generation_tree.config.FxmlView;
 import com.aneirine.generation_tree.config.StageManager;
+import com.aneirine.generation_tree.jpa.families.FamilyService;
 import com.aneirine.generation_tree.jpa.families.persistence.Family;
 import com.aneirine.generation_tree.jpa.families.persistence.FamilyMember;
-import com.aneirine.generation_tree.jpa.families.FamilyService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -14,7 +14,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +33,12 @@ public class MainController implements Initializable {
 
     @FXML
     private Button createFamilyButton;
+    @FXML
     private Button buttonCreateFamilyMember;
     @FXML
     private ListView listViewFamilies;
     @FXML
-    private HBox hBoxTree;
+    private VBox vBoxTree;
 
     @Lazy
     @Autowired
@@ -53,15 +54,15 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        buttonCreateFamilyMember = (Button) stageManager.getElementFromStage(FxmlView.FAMILY_MEMBER_BUTTON);
+        vBoxTree.setVisible(false);
         loadFamiliesNames();
-        createFamilyButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event ->
-                stageManager.addSecondStage(FxmlView.FAMILY));
+        createFamilyButton.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> stageManager.addSecondStage(FxmlView.FAMILY));
 
-        listViewFamilies.setOnMouseClicked(event -> loadFamilyTree());
-        buttonCreateFamilyMember.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            stageManager.addSecondStage(FxmlView.FAMILY_MEMBER);
+        listViewFamilies.setOnMouseClicked(event -> {
+            loadFamilyTree();
+            currentFamilyName = listViewFamilies.getSelectionModel().getSelectedItem().toString();
         });
+        buttonCreateFamilyMember.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> stageManager.addSecondStage(FxmlView.FAMILY_MEMBER));
     }
 
     public void loadFamiliesNames() {
@@ -72,22 +73,21 @@ public class MainController implements Initializable {
 
     public void loadFamilyTree() {
         Family family = familyService.getFamilyByName((String) listViewFamilies.getSelectionModel().getSelectedItem());
+        AnchorPane anchorPane = (AnchorPane) vBoxTree.getChildren().get(0);
+        anchorPane.getChildren().clear();
         if (family != null) {
-            currentFamilyName = family.getName();
-            hBoxTree.getChildren().clear();
-            if (family.getFamilyMembers() == null || family.getFamilyMembers().isEmpty()) {
-                hBoxTree.getChildren().add(buttonCreateFamilyMember);
-            } else createMemberIcon();
+            createMembersIcons(anchorPane, family);
         }
+        vBoxTree.setVisible(true);
+
     }
 
-    private void createMemberIcon() {
-        Family family = getCurrentFamily();
+    private void createMembersIcons(AnchorPane pane, Family family) {
         List<VBox> vBoxes = family.getFamilyMembers().stream()
                 .map(this::constructMemberIcon)
                 .collect(Collectors.toList());
+        pane.getChildren().addAll(vBoxes);
 
-        hBoxTree.getChildren().addAll(vBoxes);
     }
 
     private VBox constructMemberIcon(FamilyMember member) {

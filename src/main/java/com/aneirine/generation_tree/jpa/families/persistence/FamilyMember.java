@@ -27,4 +27,7 @@ public abstract class FamilyMember extends BaseEntity {
     @Enumerated(EnumType.STRING)
     protected Gender gender;
 
+    @OneToMany
+    protected List<Relation> relations = new ArrayList<>();
+
 }

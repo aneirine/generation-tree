@@ -17,10 +17,7 @@ import javax.persistence.*;
 public class Relation extends BaseEntity {
 
     @ManyToOne
-    private FamilyMember familyMemberFirst;
-
-    @ManyToOne
-    private FamilyMember familyMemberSecond;
+    private FamilyMember relatedMember;
 
     @Enumerated(EnumType.STRING)
     private RelationType relationType;

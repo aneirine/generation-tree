@@ -1,3 +1,4 @@
+/*
 package com.aneirine.generation_tree.jpa.families.persistence;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
@@ -22,3 +23,4 @@ public class Relation extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private RelationType relationType;
 }
+*/

@@ -5,18 +5,15 @@ import com.aneirine.generation_tree.jpa.families.dto.FamilyMemberCreateDto;
 import com.aneirine.generation_tree.jpa.families.persistence.Family;
 import com.aneirine.generation_tree.jpa.families.persistence.FamilyMember;
 import com.aneirine.generation_tree.jpa.families.persistence.FamilyMemberPerson;
-import com.aneirine.generation_tree.jpa.families.persistence.Relation;
 import com.aneirine.generation_tree.jpa.families.persistence.enums.Race;
-import com.aneirine.generation_tree.jpa.families.persistence.enums.RelationType;
 import com.aneirine.generation_tree.jpa.families.repositories.FamilyMemberRepository;
 import com.aneirine.generation_tree.jpa.families.repositories.FamilyRepository;
-import com.aneirine.generation_tree.jpa.families.repositories.RelationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.Arrays;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -24,11 +21,11 @@ public class FamilyMemberService {
 
     private final FamilyMemberRepository familyMemberRepository;
     private final FamilyRepository familyRepository;
-    private final RelationRepository relationRepository;
+
 
     @Transactional
-    public void createFamilyMember(FamilyMemberCreateDto dto) {
-        Family family = familyRepository.findByName(dto.getSurname());
+    public String createFamilyMember(FamilyMemberCreateDto dto) {
+        Family family = familyRepository.findById(dto.getFamilyUuid()).get();
 
         FamilyMemberPerson familyMemberPerson = new FamilyMemberPerson();
         familyMemberPerson.setRace(Race.HUMAN);
@@ -39,20 +36,25 @@ public class FamilyMemberService {
         familyMemberRepository.saveAndFlush(familyMemberPerson);
         family.addFamilyMember(familyMemberPerson);
         familyRepository.saveAndFlush(family);
+        return familyMemberPerson.getId().toString();
     }
 
-    public void addRelation(AddRelationDto dto){
+    @Transactional
+    public void addRelation(AddRelationDto dto) {
         FamilyMember familyMemberFirst = familyMemberRepository.getById(UUID.fromString(dto.getFirstMemberUUid()));
         FamilyMember familyMemberSecond = familyMemberRepository.getById(UUID.fromString(dto.getSecondMemberUUid()));
 
-        Relation relation = new Relation(familyMemberFirst, familyMemberSecond, dto.getRelationType());
-        relationRepository.save(relation);
+        familyMemberFirst.addRelation(familyMemberSecond, dto.getRelationType());
+        familyMemberSecond.addRelation(familyMemberFirst, dto.getRelationType());
+
+        familyMemberRepository.saveAll(Arrays.asList(familyMemberFirst, familyMemberSecond));
+        familyMemberRepository.flush();
     }
 
     //TODO: recreate relation logic
     //TODO: Test methods
-    private static void addSpouse(FamilyMember first, FamilyMember second) {
-        Relation relation = new Relation(first, second, RelationType.SPOUSE);
+    private void addSpouse(FamilyMember first, FamilyMember second) {
+
     }
 
 //    private static void addChild(FamilyMember child, FamilyMember parent) {

@@ -1,12 +1,13 @@
 package com.aneirine.generation_tree.jpa.families.persistence;
 
 import com.aneirine.generation_tree.jpa.entities.BaseEntity;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.Gender;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.RelationType;
 import lombok.*;
-import com.aneirine.generation_tree.jpa.families.persistence.enums.*;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -27,7 +28,13 @@ public abstract class FamilyMember extends BaseEntity {
     @Enumerated(EnumType.STRING)
     protected Gender gender;
 
-    @OneToMany
-    protected List<Relation> relations = new ArrayList<>();
+    @ElementCollection(fetch  = FetchType.EAGER)
+    @CollectionTable(name = "relations")
+    @Enumerated(EnumType.STRING)
+    protected Map<FamilyMember, RelationType> relations = new HashMap<>();
+
+    public void addRelation(FamilyMember familyMember, RelationType relationType){
+        this.relations.put(familyMember, relationType);
+    }
 
 }

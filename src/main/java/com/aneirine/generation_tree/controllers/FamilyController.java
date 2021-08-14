@@ -35,7 +35,6 @@ public class FamilyController implements Initializable {
             mainController.loadFamiliesNames();
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();
-
         });
     }
 

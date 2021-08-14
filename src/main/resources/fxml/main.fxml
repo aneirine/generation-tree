@@ -59,10 +59,11 @@
                 <VBox alignment="CENTER">
 
                     <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/16"
-                          xmlns:fx="http://javafx.com/fxml/1" fx:id="vBoxTree">
+                          xmlns:fx="http://javafx.com/fxml/1" fx:id="vBoxTree" maxHeight="-Infinity"
+                          maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+
 
                         <children>
-<!--                            <ListView fx:id="listViewFamilyMembers"/>-->
                             <AnchorPane fx:id="anchorPaneTree">
 
                             </AnchorPane>

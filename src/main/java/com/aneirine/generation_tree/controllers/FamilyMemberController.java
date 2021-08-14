@@ -1,9 +1,12 @@
 package com.aneirine.generation_tree.controllers;
 
-import com.aneirine.generation_tree.jpa.dto.FamilyMemberCreateDto;
-import com.aneirine.generation_tree.jpa.entities.family.Family;
-import com.aneirine.generation_tree.jpa.entities.family.enums.Gender;
-import com.aneirine.generation_tree.jpa.services.FamilyMemberService;
+import com.aneirine.generation_tree.jpa.families.dto.AddRelationDto;
+import com.aneirine.generation_tree.jpa.families.dto.FamilyMemberCreateDto;
+import com.aneirine.generation_tree.jpa.families.persistence.Family;
+import com.aneirine.generation_tree.jpa.families.persistence.FamilyMember;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.Gender;
+import com.aneirine.generation_tree.jpa.families.FamilyMemberService;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.RelationType;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -43,7 +46,7 @@ public class FamilyMemberController implements Initializable {
     private void createFamilyMember(MouseEvent event) {
         Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
         Family family = mainController.getCurrentFamily();
-        familyMemberService.createFamilyMember(
+        String firstUuid = familyMemberService.createFamilyMember(
                 FamilyMemberCreateDto.builder()
                         .gender(gender)
                         .name(textFieldFamilyFirstName.getText())
@@ -53,6 +56,21 @@ public class FamilyMemberController implements Initializable {
         );
         Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();
         stage.close();
+
+        String secondUuid = familyMemberService.createFamilyMember(
+                FamilyMemberCreateDto.builder()
+                        .gender(Gender.FEMALE)
+                        .name("Test spouce")
+                        .surname("asdasd")
+                        .familyUuid(family.getId())
+                        .build()
+        );
+
+        familyMemberService.addRelation(AddRelationDto.builder()
+                .firstMemberUUid(firstUuid)
+                .secondMemberUUid(secondUuid)
+                .relationType(RelationType.SPOUSE)
+                .build());
         mainController.loadFamilyTree();
     }
 }

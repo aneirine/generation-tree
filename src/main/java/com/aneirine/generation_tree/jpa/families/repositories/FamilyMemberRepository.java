@@ -1,6 +1,6 @@
-package com.aneirine.generation_tree.jpa.repositories;
+package com.aneirine.generation_tree.jpa.families.repositories;
 
-import com.aneirine.generation_tree.jpa.entities.family.FamilyMember;
+import com.aneirine.generation_tree.jpa.families.persistence.FamilyMember;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;

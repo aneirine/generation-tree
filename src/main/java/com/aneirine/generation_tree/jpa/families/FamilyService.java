@@ -1,7 +1,7 @@
-package com.aneirine.generation_tree.jpa.services;
+package com.aneirine.generation_tree.jpa.families;
 
-import com.aneirine.generation_tree.jpa.entities.family.Family;
-import com.aneirine.generation_tree.jpa.repositories.FamilyRepository;
+import com.aneirine.generation_tree.jpa.families.persistence.Family;
+import com.aneirine.generation_tree.jpa.families.repositories.FamilyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

@@ -13,7 +13,7 @@ public abstract class BaseEntity {
     @Id
     @Type(type = "pg-uuid")
     @Column(unique = true, nullable = false, columnDefinition = "uuid")
-    private UUID id;
+    protected UUID id;
 
     @PrePersist
     public void prePersist() {

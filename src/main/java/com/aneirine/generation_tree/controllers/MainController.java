@@ -2,9 +2,9 @@ package com.aneirine.generation_tree.controllers;
 
 import com.aneirine.generation_tree.config.FxmlView;
 import com.aneirine.generation_tree.config.StageManager;
-import com.aneirine.generation_tree.jpa.entities.family.Family;
-import com.aneirine.generation_tree.jpa.entities.family.FamilyMember;
-import com.aneirine.generation_tree.jpa.services.FamilyService;
+import com.aneirine.generation_tree.jpa.families.persistence.Family;
+import com.aneirine.generation_tree.jpa.families.persistence.FamilyMember;
+import com.aneirine.generation_tree.jpa.families.FamilyService;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;

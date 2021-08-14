@@ -1,8 +1,7 @@
-package com.aneirine.generation_tree.jpa.entities.family;
+package com.aneirine.generation_tree.jpa.families.persistence;
 
-import com.aneirine.generation_tree.jpa.entities.family.enums.AnimalType;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.AnimalType;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

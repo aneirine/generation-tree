@@ -42,20 +42,26 @@ public class FamilyMemberController implements Initializable {
     }
 
     public void createFamilyMember(MouseEvent event) {
-        Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
-        Family family = mainController.getCurrentFamily();
+
         familyMemberService.createFamilyMember(
-                FamilyMemberCreateDto.builder()
-                        .gender(gender)
-                        .name(textFieldFamilyFirstName.getText())
-                        .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
-                        .familyUuid(family.getId())
-                        .race(Race.HUMAN)
-                        .build()
+                familyMemberCreateDto()
         );
         Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();
         stage.close();
 
         mainController.loadFamilyTree();
+    }
+
+    private FamilyMemberCreateDto familyMemberCreateDto() {
+        Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
+        Family family = mainController.getCurrentFamily();
+        return FamilyMemberCreateDto.builder()
+                .gender(gender)
+                .name(textFieldFamilyFirstName.getText())
+                .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
+                .familyUuid(family.getId())
+                .race(Race.HUMAN)
+                .build();
+
     }
 }

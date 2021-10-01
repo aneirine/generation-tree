@@ -42,5 +42,4 @@ public class FamilyController implements Initializable {
         });
     }
 
-
 }

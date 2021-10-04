@@ -21,10 +21,13 @@ public class FamilyController implements Initializable {
     @FXML
     private Button buttonConfirm;
 
-    @Autowired
-    private FamilyService familyService;
-    @Autowired
-    private MainController mainController;
+    private final FamilyService familyService;
+    private final MainController mainController;
+
+    public FamilyController(FamilyService familyService, MainController mainController) {
+        this.familyService = familyService;
+        this.mainController = mainController;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

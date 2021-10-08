@@ -4,6 +4,7 @@ import com.aneirine.generation_tree.jpa.families.FamilyMemberService;
 import com.aneirine.generation_tree.jpa.families.dto.FamilyMemberCreateDto;
 import com.aneirine.generation_tree.jpa.families.persistence.Family;
 import com.aneirine.generation_tree.jpa.families.persistence.enums.Gender;
+import com.aneirine.generation_tree.jpa.families.persistence.enums.Race;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -40,7 +41,7 @@ public class FamilyMemberController implements Initializable {
         buttonCreateFamilyMember.addEventHandler(MouseEvent.MOUSE_CLICKED, this::createFamilyMember);
     }
 
-    private void createFamilyMember(MouseEvent event) {
+    public void createFamilyMember(MouseEvent event) {
         Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
         Family family = mainController.getCurrentFamily();
         familyMemberService.createFamilyMember(
@@ -49,6 +50,7 @@ public class FamilyMemberController implements Initializable {
                         .name(textFieldFamilyFirstName.getText())
                         .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
                         .familyUuid(family.getId())
+                        .race(Race.HUMAN)
                         .build()
         );
         Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();

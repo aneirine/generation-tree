@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.io.Writer;
 
 /**
- * Handles writing exceptions to the Logger Tab and and utility methods needed
+ * Handles writing exceptions to the Logger Tab and utility methods needed
  * to facilitate logging of exceptions
  */
 public class ExceptionWriter extends PrintWriter {

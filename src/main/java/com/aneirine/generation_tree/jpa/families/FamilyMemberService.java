@@ -28,7 +28,7 @@ public class FamilyMemberService {
         Family family = familyRepository.findById(dto.getFamilyUuid()).get();
 
         FamilyMemberPerson familyMemberPerson = new FamilyMemberPerson();
-        familyMemberPerson.setRace(Race.HUMAN);
+        familyMemberPerson.setRace(dto.getRace());
         familyMemberPerson.setSurname(dto.getSurname());
         familyMemberPerson.setFirstName(dto.getName());
         familyMemberPerson.setGender(dto.getGender());
@@ -41,8 +41,10 @@ public class FamilyMemberService {
 
     @Transactional
     public void addRelation(AddRelationDto dto) {
-        FamilyMember familyMemberFirst = familyMemberRepository.getById(UUID.fromString(dto.getFirstMemberUUid()));
-        FamilyMember familyMemberSecond = familyMemberRepository.getById(UUID.fromString(dto.getSecondMemberUUid()));
+        FamilyMember familyMemberFirst = familyMemberRepository
+                .getById(UUID.fromString(dto.getFirstMemberUUid()));
+        FamilyMember familyMemberSecond = familyMemberRepository
+                .getById(UUID.fromString(dto.getSecondMemberUUid()));
 
         familyMemberFirst.addRelation(familyMemberSecond, dto.getRelationType());
         familyMemberSecond.addRelation(familyMemberFirst, dto.getRelationType());
@@ -51,11 +53,6 @@ public class FamilyMemberService {
         familyMemberRepository.flush();
     }
 
-    //TODO: recreate relation logic
-    //TODO: Test methods
-    private void addSpouse(FamilyMember first, FamilyMember second) {
-
-    }
 
 //    private static void addChild(FamilyMember child, FamilyMember parent) {
 //        addParentChildRelation(parent, child);

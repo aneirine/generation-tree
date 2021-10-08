@@ -9,6 +9,7 @@ import lombok.Getter;
 @Builder
 @AllArgsConstructor
 public class AddRelationDto {
+
     private String firstMemberUUid;
     private String secondMemberUUid;
     private RelationType relationType;

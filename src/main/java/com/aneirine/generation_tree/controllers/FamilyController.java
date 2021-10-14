@@ -35,7 +35,6 @@ public class FamilyController implements Initializable {
             String familyName = textFieldFamilyName.getText();
             familyService.createFamily(familyName);
 
-
             mainController.loadFamiliesNames();
             Stage stage = (Stage) buttonConfirm.getScene().getWindow();
             stage.close();

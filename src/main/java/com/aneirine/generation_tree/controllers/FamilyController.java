@@ -7,13 +7,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Slf4j
 @Controller
+@RequiredArgsConstructor
 public class FamilyController implements Initializable {
 
     @FXML
@@ -24,15 +27,11 @@ public class FamilyController implements Initializable {
     private final FamilyService familyService;
     private final MainController mainController;
 
-    public FamilyController(FamilyService familyService, MainController mainController) {
-        this.familyService = familyService;
-        this.mainController = mainController;
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         buttonConfirm.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             String familyName = textFieldFamilyName.getText();
+            log.info("Processing family creation with name [{}]", familyName);
             familyService.createFamily(familyName);
 
             mainController.loadFamiliesNames();

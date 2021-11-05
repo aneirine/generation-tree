@@ -30,7 +30,7 @@ public class Main extends Application{
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         springContext.close();
     }
 

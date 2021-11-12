@@ -19,7 +19,7 @@ public class Main extends Application{
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         springContext = springBootApplicationContext();
     }
 

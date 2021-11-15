@@ -42,10 +42,7 @@ public class FamilyMemberController implements Initializable {
     }
 
     public void createFamilyMember(MouseEvent event) {
-
-        familyMemberService.createFamilyMember(
-                familyMemberCreateDto()
-        );
+        familyMemberService.createFamilyMember(familyMemberCreateDto());
         Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();
         stage.close();
 
@@ -58,10 +55,14 @@ public class FamilyMemberController implements Initializable {
         return FamilyMemberCreateDto.builder()
                 .gender(gender)
                 .name(textFieldFamilyFirstName.getText())
-                .surname(textFieldFamilySurname.getText().isEmpty() ? family.getName() : textFieldFamilySurname.getText())
+                .surname(formatSurname(family.getName()))
                 .familyUuid(family.getId())
                 .race(Race.HUMAN)
                 .build();
 
+    }
+
+    private String formatSurname(String familyName){
+       return textFieldFamilySurname.getText().isEmpty() ? familyName : textFieldFamilySurname.getText();
     }
 }

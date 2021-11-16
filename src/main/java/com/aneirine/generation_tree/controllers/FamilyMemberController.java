@@ -59,7 +59,6 @@ public class FamilyMemberController implements Initializable {
                 .familyUuid(family.getId())
                 .race(Race.HUMAN)
                 .build();
-
     }
 
     private String formatSurname(String familyName){

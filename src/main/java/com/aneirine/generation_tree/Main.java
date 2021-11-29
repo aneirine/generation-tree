@@ -19,18 +19,18 @@ public class Main extends Application{
     }
 
     @Override
-    public void init() throws Exception {
+    public void init() {
         springContext = springBootApplicationContext();
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) {
         stageManager = springContext.getBean(StageManager.class, stage);
         displayInitialScene();
     }
 
     @Override
-    public void stop() throws Exception {
+    public void stop() {
         springContext.close();
     }
 

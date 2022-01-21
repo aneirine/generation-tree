@@ -14,11 +14,13 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class FamilyMemberController implements Initializable {
@@ -52,6 +54,11 @@ public class FamilyMemberController implements Initializable {
     private FamilyMemberCreateDto familyMemberCreateDto() {
         Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
         Family family = mainController.getCurrentFamily();
+        if (family == null) {
+            log.error("Cannot create family member, no active family was found");
+            //TODO add exception throwing
+            return null;
+        }
         return FamilyMemberCreateDto.builder()
                 .gender(gender)
                 .name(textFieldFamilyFirstName.getText())
@@ -61,7 +68,7 @@ public class FamilyMemberController implements Initializable {
                 .build();
     }
 
-    private String formatSurname(String familyName){
-       return textFieldFamilySurname.getText().isEmpty() ? familyName : textFieldFamilySurname.getText();
+    private String formatSurname(String familyName) {
+        return textFieldFamilySurname.getText().isEmpty() ? familyName : textFieldFamilySurname.getText();
     }
 }

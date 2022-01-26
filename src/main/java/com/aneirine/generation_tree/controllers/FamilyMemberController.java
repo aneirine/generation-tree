@@ -44,7 +44,12 @@ public class FamilyMemberController implements Initializable {
     }
 
     public void createFamilyMember(MouseEvent event) {
-        familyMemberService.createFamilyMember(familyMemberCreateDto());
+        FamilyMemberCreateDto dto = familyMemberCreateDto();
+        if (dto == null) {
+            log.error("Cannot create family member, no active family was found");
+            return;
+        }
+        familyMemberService.createFamilyMember(dto);
         Stage stage = (Stage) buttonCreateFamilyMember.getScene().getWindow();
         stage.close();
 
@@ -55,7 +60,6 @@ public class FamilyMemberController implements Initializable {
         Gender gender = radioButtonMale.isSelected() ? Gender.MALE : Gender.FEMALE;
         Family family = mainController.getCurrentFamily();
         if (family == null) {
-            log.error("Cannot create family member, no active family was found");
             //TODO add exception throwing
             return null;
         }
